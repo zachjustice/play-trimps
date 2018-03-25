@@ -1,0 +1,39 @@
+{
+  "name": "Plays Trimps",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Plays trimps for you",
+  "homepage_url": "http://github.com/zachjustice/play-trimps",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "options_page": "src/options_custom/index.html",
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "browser action demo",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": true
+  },
+  "permissions": [
+    "https://trimps.github.io/"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://trimps.github.io/"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": ["src/*"]
+}
